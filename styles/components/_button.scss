@@ -1,10 +1,11 @@
+@use '../abstracts/colors' as color;
 .abort-timer-button {
     width: 13rem;
     height: 4rem;
-    border: 1px solid $color-dark;
+    border: 1px solid color.$color-dark;
 
     p {
-        color: $color-dark;
+        color: color.$color-dark;
     }
 
 }
