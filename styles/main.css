@@ -49,6 +49,7 @@ body {
   left: 50%;
   bottom: 50%;
   transform: translate(-50%) rotate(calc(var(--rotate)));
+  transform-origin: bottom;
 }
 .analog-timer .clock .hour-hand {
   width: 0.5rem;

@@ -28,6 +28,7 @@
             left: 50%;
             bottom: 50%;
             transform: translate(-50%) rotate(calc(var(--rotate)));
+            transform-origin: bottom;
         }
 
         .hour-hand {
