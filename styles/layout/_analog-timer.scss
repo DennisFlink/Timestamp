@@ -22,12 +22,12 @@
         
         }
 
-        .hour-hand, .minute-hand, .second-hand {
+        .minute-hand, .second-hand {
             --rotate: 0;
             position: absolute;
             left: 50%;
             bottom: 50%;
-            transform: translate(-50%) rotate(calc(var(--rotate)));
+            transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
             transform-origin: bottom;
         }
 

@@ -43,12 +43,12 @@ body {
   inset: 2rem;
   font-size: 2rem;
 }
-.analog-timer .clock .hour-hand, .analog-timer .clock .minute-hand, .analog-timer .clock .second-hand {
+.analog-timer .clock .minute-hand, .analog-timer .clock .second-hand {
   --rotate: 0;
   position: absolute;
   left: 50%;
   bottom: 50%;
-  transform: translate(-50%) rotate(calc(var(--rotate)));
+  transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
   transform-origin: bottom;
 }
 .analog-timer .clock .hour-hand {

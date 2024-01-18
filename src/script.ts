@@ -6,11 +6,10 @@ function clockTick() {
     const date = new Date()
     const seconds = date.getSeconds() / 60
     const minutes = (seconds + date.getMinutes()) / 60
-    const hours = (minutes + date.getHours()) / 60
+    const hours = (minutes + date.getHours()) / 12
 
     rotateClockHand(secondHand, seconds)
     rotateClockHand(minutedHand, minutes)
-    rotateClockHand(hourHand, hours)
 }
 
 
