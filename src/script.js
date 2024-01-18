@@ -9,7 +9,6 @@ function clockTick() {
     const hours = (minutes + date.getHours()) / 12;
     rotateClockHand(secondHand, seconds);
     rotateClockHand(minutedHand, minutes);
-    rotateClockHand(hourHand, hours);
 }
 function rotateClockHand(element, rotation) {
     element.style.setProperty('--rotate', `${rotation * 360}`);

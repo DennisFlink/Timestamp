@@ -51,20 +51,15 @@ body {
   transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
   transform-origin: bottom;
 }
-.analog-timer .clock .hour-hand {
-  width: 0.5rem;
-  height: 8rem;
-  background-color: black;
-}
 .analog-timer .clock .minute-hand {
   width: 0.5rem;
   height: 10rem;
-  background-color: gray;
+  background-color: black;
 }
 .analog-timer .clock .second-hand {
   width: 0.25rem;
   height: 12rem;
-  background-color: red;
+  background-color: gray;
 }
 
 .header {

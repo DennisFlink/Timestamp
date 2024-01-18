@@ -31,22 +31,17 @@
             transform-origin: bottom;
         }
 
-        .hour-hand {
-            width: 0.5rem;
-            height: 8rem;
-            background-color: black;
-        }
-
+  
         .minute-hand {
             width: 0.5rem;
             height: 10rem;
-            background-color: gray
+            background-color: black
         }
 
         .second-hand {
             width: 0.25rem;
             height: 12rem;
-            background-color: red;
+            background-color: gray
         }
 
 
