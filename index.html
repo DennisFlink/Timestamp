@@ -4,13 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      defer
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      defer
+    ></script>
     <script src="src/script.js" defer></script>
+    <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
+    <header class="hidden">
+      <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+      <nav>
+        <h1>INTERVAL</h1>
+      </nav>
+    </header>
+    <main>
+      <section class="set-timer hidden"></section>
 
-    <section class="set-timer"></section>
-
+      <section class="loading hidden">
+        <div class="logo-container">
+          <ion-icon class="logo" name="reorder-four-outline"></ion-icon>
+          <h1>Interval</h1>
+          <p>For all your timing needs</p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
