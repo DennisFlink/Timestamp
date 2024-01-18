@@ -3,9 +3,9 @@
     width: 13rem;
     height: 4rem;
     border: 1px solid color.$color-dark;
-
-    p {
-        color: color.$color-dark;
-    }
-
+    border-radius: 0.5rem;
+    color: color.$color-dark;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.25rem;
 }

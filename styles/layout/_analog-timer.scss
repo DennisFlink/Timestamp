@@ -1,4 +1,55 @@
 .analog-timer {
-    font-family: 'PT Sans', sans-serif;
-    
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+    .clock {
+        width: 30rem;
+        height: 30rem;
+        position: relative;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .number {
+            transform: rotate(calc(6deg * var(--n)));
+            position: absolute;
+            text-align: center;
+            inset: 2rem;
+            font-size: 2rem;
+
+        
+        }
+
+        .hour-hand, .minute-hand, .second-hand {
+            --rotate: 0;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform: translate(-50%) rotate(calc(var(--rotate)));
+        }
+
+        .hour-hand {
+            width: 0.5rem;
+            height: 8rem;
+            background-color: black;
+        }
+
+        .minute-hand {
+            width: 0.5rem;
+            height: 10rem;
+            background-color: gray
+        }
+
+        .second-hand {
+            width: 0.25rem;
+            height: 12rem;
+            background-color: red;
+        }
+
+
+
+    }
+   
 }
