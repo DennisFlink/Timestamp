@@ -4,13 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
-    <script src="src/script.js" defer></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      defer
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body>
+    <header class="">
+      <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+      <nav class="nav">
+        <h1>INTERVAL</h1>
+      </nav>
+    </header>
 
-    <section class="set-timer"></section>
+    <section class="visual-timer">
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="outer-container">
+        <div class="inner-container">
+          <div id="basicUsage"></div>
+          <button type="button" class="abort-timer-button">Abort timer</button>
+        </div>
+      </div>
+    </section>
 
+    <script src="./dist/easytimer.bundle.js"></script>
+    <script src="./dist/script.bundle.js"></script>
   </body>
 </html>
