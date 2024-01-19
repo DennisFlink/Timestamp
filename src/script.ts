@@ -2,19 +2,35 @@ const secondHand = document.getElementById('second-hand') as HTMLElement
 const minutedHand = document.getElementById('minute-hand') as HTMLElement
 const hourHand = document.getElementById('hour-hand') as HTMLElement
 
-function clockTick() {
-    const date = new Date()
-    const seconds = date.getSeconds() / 60
-    const minutes = (seconds + date.getMinutes()) / 60
-    const hours = (minutes + date.getHours()) / 12
+let timerSeconds = 120;
+let elapsedSeconds = 0;
 
-    rotateClockHand(secondHand, seconds)
-    rotateClockHand(minutedHand, minutes)
+function startTimer() {
+    setInterval(() => {
+        elapsedSeconds++
+        const seconds = elapsedSeconds / 60
+        const minutes = seconds / 60
+
+        rotateClockHand(secondHand, seconds)
+        rotateClockHand(minutedHand, minutes)
+
+        if (timerSeconds === elapsedSeconds) {
+            goToAlarm();
+        }
+
+    }, 1000)
 }
 
-
+function resetTimer() {
+    rotateClockHand(secondHand, 0)
+    rotateClockHand(minutedHand, 0)
+    elapsedSeconds = 0;
+}  
+    
 function rotateClockHand(element: HTMLElement, rotation: number) {
-    element.style.setProperty('--rotate', `${rotation * 360}`);
+   element.style.setProperty('--rotate', `${rotation * 360}`);
 }
 
-setInterval(clockTick, 1000);
+function goToAlarm(){}
+
+startTimer()
