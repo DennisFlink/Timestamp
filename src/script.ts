@@ -2,8 +2,8 @@ const secondHand = document.getElementById('second-hand') as HTMLElement
 const minutedHand = document.getElementById('minute-hand') as HTMLElement
 const hourHand = document.getElementById('hour-hand') as HTMLElement
 
-let timerSeconds = 120;
-let elapsedSeconds = 0;
+let timerSeconds: number = 120;
+let elapsedSeconds: number = 0;
 
 function startTimer() {
     setInterval(() => {
