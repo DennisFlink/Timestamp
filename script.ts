@@ -40,14 +40,14 @@ const upDateProg = (totalTimeInSeconds: any) => {
 
     progressBarEl.style.height = `${progress}%`;
 
-    if (progress >= containerHeight - 27) {
+    /* if (progress >= containerHeight - 27) {
       navH1.classList.add("white-text");
       menuIcon.classList.add("white-text");
     } else {
       navH1.classList.remove("white-text");
       menuIcon.classList.remove("white-text");
-    }
-  }
+    }*/
+  } 
 
   if (initialTime.minutes === 0) {
     progressBarEl!.style.height = "100%";
