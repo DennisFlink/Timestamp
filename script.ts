@@ -2,7 +2,7 @@ import Timer from "easytimer.js";
 let timer = new Timer();
 
 let visualScreen: boolean = false;
-let interval: boolean = false;
+let interval: boolean = true;
 
 const header = document.querySelector('header') as HTMLElement
 const setTimer = document.querySelector('.set-timer') as HTMLElement
@@ -60,6 +60,7 @@ const goToPauseView = () => {
   const sectionsToHide = document.querySelectorAll('section:not(#pauseView)');
   sectionsToHide.forEach(section => section.classList.add('hidden'));
   pauseView.classList.remove('hidden');
+  header.classList.add('hidden')
   visualScreen = false;
 
   startIntervalTimer()
@@ -74,15 +75,18 @@ const startIntervalTimer = () => {
 
   minute!.textContent = timer.getTimeValues().minutes.toString();
   second!.textContent = timer.getTimeValues().seconds.toString();
+
+  
 }
 
 const goToAlarm = () => {
-  if (interval) {
+  if (interval === true) {
     goToPauseView()
   }
   else {
     const sectionsToHide = document.querySelectorAll('section:not(#alarm)');
     sectionsToHide.forEach(section => section.classList.add('hidden'));
+    header.classList.add('hidden')
     alarm.classList.remove('hidden');
     resetClock()
     visualScreen = false;
@@ -99,22 +103,23 @@ if (amountMinutesElement) {
   numericValue = parseInt(amountMinutes, 10);
 }
 
-const initialTime = { minutes: numericValue };
+const initialTime = { seconds: numericValue };
 
+timer.start({ countdown: true, startValues: initialTime });
+console.log('timer sttarted')
+timer.addEventListener("secondsUpdated", function (e) {
+  let basicUsageElement = document.querySelector("#gettingvalue");
+  if (basicUsageElement) {
+    let minute = document.querySelector(".minutes");
+    let second = document.querySelector(".seconds");
+
+    minute!.textContent = timer.getTimeValues().minutes.toString();
+    second!.textContent = timer.getTimeValues().seconds.toString();
+  }
+  visualTimer();
+  startClock();
+});
 const startTimer = () => {
-  timer.start({ countdown: true, startValues: initialTime });
-  timer.addEventListener("secondsUpdated", function (e) {
-    let basicUsageElement = document.querySelector("#gettingvalue");
-    if (basicUsageElement) {
-      let minute = document.querySelector(".minutes");
-      let second = document.querySelector(".seconds");
-  
-      minute!.textContent = timer.getTimeValues().minutes.toString();
-      second!.textContent = timer.getTimeValues().seconds.toString();
-    }
-    visualTimer();
-    startClock();
-  });
 }
 
 timer.addEventListener('targetAchieved', function(e) {
@@ -138,8 +143,8 @@ const upDateProg = (totalTimeInSeconds: any) => {
   if (progressBarEl && navContainer && navH1 && menuIcon) {
     const containerHeight: number = navContainer.offsetHeight;
     let progress: number =
-      ((initialTime.minutes * 60 - totalTimeInSeconds) /
-        (initialTime.minutes * 60)) *
+      ((initialTime.seconds * 60 - totalTimeInSeconds) /
+        (initialTime.seconds * 60)) *
       100;
 
     progressBarEl.style.height = `${progress}%`;
@@ -153,7 +158,7 @@ const upDateProg = (totalTimeInSeconds: any) => {
     }
   }
 
-  if (initialTime.minutes === 0) {
+  if (initialTime.seconds === 0) {
     progressBarEl!.style.height = "100%";
   }
 };

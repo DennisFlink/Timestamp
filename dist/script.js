@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const easytimer_js_1 = __importDefault(require("easytimer.js"));
 let timer = new easytimer_js_1.default();
 let visualScreen = false;
-let interval = false;
+let interval = true;
 const header = document.querySelector('header');
 const setTimer = document.querySelector('.set-timer');
 const visual = document.querySelector('.visual');
@@ -59,6 +59,7 @@ const goToPauseView = () => {
     const sectionsToHide = document.querySelectorAll('section:not(#pauseView)');
     sectionsToHide.forEach(section => section.classList.add('hidden'));
     pauseView.classList.remove('hidden');
+    header.classList.add('hidden');
     visualScreen = false;
     startIntervalTimer();
 };
@@ -71,12 +72,13 @@ const startIntervalTimer = () => {
     second.textContent = timer.getTimeValues().seconds.toString();
 };
 const goToAlarm = () => {
-    if (interval) {
+    if (interval === true) {
         goToPauseView();
     }
     else {
         const sectionsToHide = document.querySelectorAll('section:not(#alarm)');
         sectionsToHide.forEach(section => section.classList.add('hidden'));
+        header.classList.add('hidden');
         alarm.classList.remove('hidden');
         resetClock();
         visualScreen = false;
@@ -88,20 +90,21 @@ if (amountMinutesElement) {
     const amountMinutes = amountMinutesElement.textContent || "";
     numericValue = parseInt(amountMinutes, 10);
 }
-const initialTime = { minutes: numericValue };
+const initialTime = { seconds: numericValue };
+timer.start({ countdown: true, startValues: initialTime });
+console.log('timer sttarted');
+timer.addEventListener("secondsUpdated", function (e) {
+    let basicUsageElement = document.querySelector("#gettingvalue");
+    if (basicUsageElement) {
+        let minute = document.querySelector(".minutes");
+        let second = document.querySelector(".seconds");
+        minute.textContent = timer.getTimeValues().minutes.toString();
+        second.textContent = timer.getTimeValues().seconds.toString();
+    }
+    visualTimer();
+    startClock();
+});
 const startTimer = () => {
-    timer.start({ countdown: true, startValues: initialTime });
-    timer.addEventListener("secondsUpdated", function (e) {
-        let basicUsageElement = document.querySelector("#gettingvalue");
-        if (basicUsageElement) {
-            let minute = document.querySelector(".minutes");
-            let second = document.querySelector(".seconds");
-            minute.textContent = timer.getTimeValues().minutes.toString();
-            second.textContent = timer.getTimeValues().seconds.toString();
-        }
-        visualTimer();
-        startClock();
-    });
 };
 timer.addEventListener('targetAchieved', function (e) {
     goToAlarm();
@@ -118,8 +121,8 @@ const upDateProg = (totalTimeInSeconds) => {
     const menuIcon = document.querySelector(".menu-icon");
     if (progressBarEl && navContainer && navH1 && menuIcon) {
         const containerHeight = navContainer.offsetHeight;
-        let progress = ((initialTime.minutes * 60 - totalTimeInSeconds) /
-            (initialTime.minutes * 60)) *
+        let progress = ((initialTime.seconds * 60 - totalTimeInSeconds) /
+            (initialTime.seconds * 60)) *
             100;
         progressBarEl.style.height = `${progress}%`;
         if (visualScreen === true && progress >= containerHeight - 27) {
@@ -131,7 +134,7 @@ const upDateProg = (totalTimeInSeconds) => {
             menuIcon.classList.remove("white-text");
         }
     }
-    if (initialTime.minutes === 0) {
+    if (initialTime.seconds === 0) {
         progressBarEl.style.height = "100%";
     }
 };
