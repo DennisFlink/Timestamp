@@ -1,29 +1,43 @@
-/* import Timer from "easytimer.js";
+import Timer from "easytimer.js";
 let timer = new Timer();
 
-timer.start({ countdown: true, startValues: { minutes: 20 } });
+const initialTime = { minutes: 2 };
+timer.start({ countdown: true, startValues: initialTime });
 
 timer.addEventListener("secondsUpdated", function (e) {
-  let basicUsageElement = document.querySelector("#basicUsage");
+  let basicUsageElement = document.querySelector("#gettingvalue");
   if (basicUsageElement) {
-    basicUsageElement.innerHTML = timer.getTimeValues().toString();
+    let minute = document.querySelector(".minutes");
+    let second = document.querySelector(".seconds");
+
+    minute!.textContent = timer.getTimeValues().minutes.toString();
+    second!.textContent = timer.getTimeValues().seconds.toString();
   }
+  visualTimer();
 });
- */
-const progressBarEl: HTMLElement | null = document.querySelector(".progress");
 
-let remainingTime: number = 2000; // seconds
-const totalTime: number = remainingTime;
+const visualTimer = () => {
+  let totalTimeInSeconds = timer.getTotalTimeValues().seconds;
 
-function countdown(): void {
+  upDateProg(totalTimeInSeconds);
+};
+
+const upDateProg = (totalTimeInSeconds: any) => {
+  const progressBarEl: HTMLElement | null = document.querySelector(".progress");
   const navContainer: HTMLElement | null = document.querySelector(".nav");
   const navH1: HTMLElement | null = navContainer!.querySelector(".nav > h1");
   const menuIcon: HTMLElement | null = document.querySelector(".menu-icon");
 
+  console.log(totalTimeInSeconds);
   if (progressBarEl && navContainer && navH1 && menuIcon) {
     const containerHeight: number = navContainer.offsetHeight;
+    let progress: number =
+      ((initialTime.minutes * 60 - totalTimeInSeconds) /
+        (initialTime.minutes * 60)) *
+      100;
+    console.log(progress);
+    /*     let progress: number = totalTimeInSeconds / 100; */
 
-    const progress: number = ((totalTime - remainingTime) / totalTime) * 100;
     progressBarEl.style.height = `${progress}%`;
 
     if (progress >= containerHeight - 27) {
@@ -34,16 +48,8 @@ function countdown(): void {
       menuIcon.classList.remove("white-text");
     }
   }
-
-  if (remainingTime > 0) {
-    remainingTime--;
-    setTimeout(countdown, 1000);
-  } else {
-    // countdown finished
-    if (progressBarEl) {
-      progressBarEl.style.height = "100%";
-    }
+  // countdown finished
+  if (initialTime.minutes === 0) {
+    progressBarEl!.style.height = "100%";
   }
-}
-
-countdown();
+};
