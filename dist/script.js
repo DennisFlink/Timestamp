@@ -6,8 +6,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const easytimer_js_1 = __importDefault(require("easytimer.js"));
 let timer = new easytimer_js_1.default();
 let ScreenState = 1;
-const initialTime = { minutes: 2 };
+let numericValue = 0;
+const amountMinutesElement = document.getElementById("minutes");
+if (amountMinutesElement) {
+    const amountMinutes = amountMinutesElement.textContent || "";
+    numericValue = parseInt(amountMinutes, 10);
+}
+else {
+}
+const initialTime = { minutes: numericValue };
 timer.start({ countdown: true, startValues: initialTime });
+console.log(initialTime);
 timer.addEventListener("secondsUpdated", function (e) {
     let basicUsageElement = document.querySelector("#gettingvalue");
     if (basicUsageElement) {
@@ -34,7 +43,6 @@ const upDateProg = (totalTimeInSeconds) => {
         let progress = ((initialTime.minutes * 60 - totalTimeInSeconds) /
             (initialTime.minutes * 60)) *
             100;
-        console.log(progress);
         progressBarEl.style.height = `${progress}%`;
         /* if (progress >= containerHeight - 27) {
           navH1.classList.add("white-text");
@@ -48,9 +56,9 @@ const upDateProg = (totalTimeInSeconds) => {
         progressBarEl.style.height = "100%";
     }
 };
-const secondHand = document.getElementById('second-hand');
-const minutedHand = document.getElementById('minute-hand');
-const hourHand = document.getElementById('hour-hand');
+const secondHand = document.getElementById("second-hand");
+const minutedHand = document.getElementById("minute-hand");
+const hourHand = document.getElementById("hour-hand");
 let timerSeconds = timer.getTotalTimeValues().seconds;
 console.log(timerSeconds);
 let elapsedSeconds = 0;
@@ -69,5 +77,5 @@ function resetClock() {
     elapsedSeconds = 0;
 }
 function rotateClockHand(element, rotation) {
-    element.style.setProperty('--rotate', `${rotation * 360}`);
+    element.style.setProperty("--rotate", `${rotation * 360}`);
 }
