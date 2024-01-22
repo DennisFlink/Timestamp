@@ -26,7 +26,7 @@ body {
 }
 
 .analog-timer {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -70,7 +70,7 @@ body {
   margin-top: 10rem;
 }
 
-.visual-timer {
+.visual {
   background-color: #eee;
   height: 100%;
   position: relative;
@@ -266,4 +266,6 @@ h1 {
 
 .white-text {
   color: white;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
