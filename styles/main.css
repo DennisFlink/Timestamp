@@ -1,154 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Righteous&display=swap");
-html {
-  font-size: 62.5%;
-}
+/* Error: expected "{".
+ *   ,
+ * 3 |   font-size: 62.5%;
+ *   |                   ^
+ *   '
+ *   base\_general.scss 3:19  @forward
+ *   base\_index.scss 1:1     @use
+ *   main.scss 2:1            root stylesheet */
 
-html,
-body {
-  min-height: 100vh;
-  height: 100%;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a   \2577 \a 3 \2502    font-size: 62.5%;\d\a   \2502                    ^\a   \2575 \a   base\\_general.scss 3:19  @forward\a   base\\_index.scss 1:1     @use\a   main.scss 2:1            root stylesheet';
 }
-
-.hidden {
-  display: none !important;
-}
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.analog-timer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10rem;
-}
-.analog-timer .clock {
-  width: 30rem;
-  height: 30rem;
-  position: relative;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.analog-timer .clock .number {
-  transform: rotate(calc(6deg * var(--n)));
-  position: absolute;
-  text-align: center;
-  inset: 2rem;
-  font-size: 2rem;
-}
-.analog-timer .clock .minute-hand, .analog-timer .clock .second-hand {
-  --rotate: 0;
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
-  transform-origin: bottom;
-}
-.analog-timer .clock .minute-hand {
-  width: 0.5rem;
-  height: 10rem;
-  background-color: black;
-}
-.analog-timer .clock .second-hand {
-  width: 0.25rem;
-  height: 12rem;
-  background-color: gray;
-}
-.analog-timer .abort-timer-button {
-  margin-top: 10rem;
-}
-
-.visual-timer {
-  background-color: #eee;
-  height: 100%;
-  position: relative;
-}
-
-.outer-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  position: absolute;
-}
-
-.progress {
-  height: 0%;
-  background-color: #222;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.inner-container {
-  margin-bottom: 10rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.inner-container button {
-  z-index: 10;
-}
-
-.abort-timer-button {
-  width: 13rem;
-  height: 4rem;
-  border: 1px solid #222;
-  border-radius: 0.5rem;
-  color: #222;
-  font-family: "PT Sans", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.25rem;
-}
-
-header {
-  width: 100%;
-  height: 10rem;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  position: absolute;
-}
-
-h1 {
-  font-size: 3rem;
-  z-index: 1;
-}
-
-.nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.menu-icon {
-  width: 5rem;
-  height: 5rem;
-  z-index: 1;
-  position: absolute;
-  padding: 3rem;
-  cursor: pointer;
-}
-
-.white-text {
-  color: white;
-}
-
-/*# sourceMappingURL=main.css.map */
