@@ -1,23 +1,23 @@
-@use '../abstracts/colors' as color;
+@use "../abstracts/colors" as color;
 .abort-timer-button {
-    width: 13rem;
-    height: 4rem;
-    border: 1px solid color.$color-dark;
-    border-radius: 0.5rem;
-    color: color.$color-dark;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.25rem;
+  width: 13rem;
+  height: 4rem;
+  border: 1px solid color.$color-dark;
+  border-radius: 0.5rem;
+  color: color.$color-dark;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
 }
 
 .no-pause-button {
-    width: 20rem;
-    height: 4rem;
-    border: 1px solid color.$color-light;
-    border-radius: 0.5rem;
-    color: color.$color-light;
-    background-color: color.$color-dark;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.25rem;
+  width: 20rem;
+  height: 4rem;
+  border: 1px solid color.$color-light;
+  border-radius: 0.5rem;
+  color: color.$color-light;
+  background-color: color.$color-dark;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
 }

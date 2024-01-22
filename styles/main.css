@@ -1,12 +1,26 @@
+<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Righteous&display=swap");
 html {
   font-size: 62.5%;
+=======
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Righteous&display=swap'); */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  height: -webkit-fill-available;
+>>>>>>> Loading
 }
 
 html,
 body {
+<<<<<<< HEAD
   min-height: 100vh;
   height: 100%;
+=======
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+  min-height: 100vh;
+>>>>>>> Loading
 }
 
 .hidden {
@@ -21,6 +35,7 @@ body {
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .analog-timer {
   display: none;
   flex-direction: column;
@@ -199,23 +214,66 @@ body {
   font-family: "PT Sans", sans-serif;
   font-weight: 700;
   letter-spacing: 0.25rem;
+=======
+.loading {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading .logo-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.loading .logo-container .logo {
+  color: white;
+  width: 10rem;
+  height: 10rem;
+  transform: rotate(90deg);
+}
+.loading .logo-container h1 {
+  font-size: 10rem;
+  color: white;
+  text-align: center;
+}
+.loading .logo-container p {
+  color: white;
+  text-align: center;
+  font-size: 5rem;
+>>>>>>> Loading
 }
 
 header {
   width: 100%;
   height: 10rem;
+<<<<<<< HEAD
   background-color: transparent;
   display: flex;
   align-items: center;
   position: absolute;
+=======
+  background-color: hotpink;
+  display: flex;
+  align-items: center;
+  position: relative;
+>>>>>>> Loading
 }
 
 h1 {
   font-size: 3rem;
+<<<<<<< HEAD
   z-index: 1;
 }
 
 .nav {
+=======
+}
+
+nav {
+>>>>>>> Loading
   width: 100%;
   display: flex;
   justify-content: center;
@@ -226,6 +284,7 @@ h1 {
   height: 5rem;
   z-index: 1;
   position: absolute;
+<<<<<<< HEAD
   padding: 3rem;
   cursor: pointer;
 }
@@ -235,3 +294,11 @@ h1 {
 }
 
 /*# sourceMappingURL=main.css.map */
+=======
+}
+
+.abort-timer-button {
+  width: 13rem;
+  height: 4rem;
+}/*# sourceMappingURL=main.css.map */
+>>>>>>> Loading
