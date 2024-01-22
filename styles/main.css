@@ -1,26 +1,16 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Righteous&display=swap");
 html {
   font-size: 62.5%;
-=======
-/* @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Righteous&display=swap'); */
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-  height: -webkit-fill-available;
->>>>>>> Loading
 }
 
 html,
 body {
-<<<<<<< HEAD
   min-height: 100vh;
   height: 100%;
-=======
-  min-height: 100%;
-  min-height: -webkit-fill-available;
-  min-height: 100vh;
->>>>>>> Loading
+}
+
+.hidden {
+  display: none !important;
 }
 
 .hidden {
@@ -33,164 +23,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-<<<<<<< HEAD
-.analog-timer {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10rem;
-}
-.analog-timer .clock {
-  width: 30rem;
-  height: 30rem;
-  position: relative;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.analog-timer .clock .number {
-  transform: rotate(calc(6deg * var(--n)));
-  position: absolute;
-  text-align: center;
-  inset: 2rem;
-  font-size: 2rem;
-}
-.analog-timer .clock .minute-hand, .analog-timer .clock .second-hand {
-  --rotate: 0;
-  position: absolute;
-  left: 50%;
-  bottom: 50%;
-  transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
-  transform-origin: bottom;
-}
-.analog-timer .clock .minute-hand {
-  width: 0.5rem;
-  height: 10rem;
-  background-color: black;
-}
-.analog-timer .clock .second-hand {
-  width: 0.25rem;
-  height: 12rem;
-  background-color: gray;
-}
-.analog-timer .abort-timer-button {
-  margin-top: 10rem;
-}
-
-.visual-timer {
-  background-color: #eee;
-  height: 100%;
-  position: relative;
-}
-
-.outer-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  position: absolute;
-}
-
-.progress {
-  height: 0%;
-  background-color: #222;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.inner-container {
-  margin-bottom: 10rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-.inner-container button {
-  z-index: 10;
-}
-
-.pause-view {
-  display: grid;
-  grid-template-rows: 1fr;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #222;
-  font-family: "PT Sans", sans-serif;
-  text-align: center;
-}
-.pause-view .circle-1, .pause-view .circle-2, .pause-view .circle-3, .pause-view .circle-4 {
-  margin: auto;
-  border-radius: 50%;
-  grid-area: 1/1;
-}
-.pause-view .circle-1 {
-  background-color: rgba(255, 255, 255, 0.08);
-  width: 15rem;
-  height: 15rem;
-  z-index: 4;
-}
-.pause-view .circle-2 {
-  background-color: rgba(255, 255, 255, 0.06);
-  width: 23rem;
-  height: 23rem;
-  z-index: 3;
-}
-.pause-view .circle-3 {
-  background-color: rgba(255, 255, 255, 0.05);
-  height: 34rem;
-  width: 34rem;
-  z-index: 2;
-}
-.pause-view .circle-4 {
-  background-color: rgba(255, 255, 255, 0.03);
-  width: 50rem;
-  height: 50rem;
-  z-index: 1;
-}
-.pause-view h3, .pause-view p {
-  grid-area: 1/1;
-  margin: auto;
-  color: #eee;
-}
-.pause-view h3 {
-  font-size: 3rem;
-  padding-top: 20rem;
-  font-weight: 700;
-}
-.pause-view p {
-  font-size: 2rem;
-  padding-top: 25rem;
-  color: rgba(255, 255, 255, 0.233);
-}
-.pause-view .pause-outline {
-  grid-area: 1/1;
-  margin: auto;
-  height: 8rem;
-  width: 10rem;
-  color: #eee;
-}
-.pause-view div {
-  grid-area: 1/1;
-  margin: auto;
-  padding-top: 10rem;
-}
-.pause-view div p {
-  padding-bottom: 2rem;
 }
 
 .abort-timer-button {
@@ -214,66 +46,23 @@ body {
   font-family: "PT Sans", sans-serif;
   font-weight: 700;
   letter-spacing: 0.25rem;
-=======
-.loading {
-  height: 100vh;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.loading .logo-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.loading .logo-container .logo {
-  color: white;
-  width: 10rem;
-  height: 10rem;
-  transform: rotate(90deg);
-}
-.loading .logo-container h1 {
-  font-size: 10rem;
-  color: white;
-  text-align: center;
-}
-.loading .logo-container p {
-  color: white;
-  text-align: center;
-  font-size: 5rem;
->>>>>>> Loading
 }
 
 header {
   width: 100%;
   height: 10rem;
-<<<<<<< HEAD
   background-color: transparent;
   display: flex;
   align-items: center;
   position: absolute;
-=======
-  background-color: hotpink;
-  display: flex;
-  align-items: center;
-  position: relative;
->>>>>>> Loading
 }
 
 h1 {
   font-size: 3rem;
-<<<<<<< HEAD
   z-index: 1;
 }
 
 .nav {
-=======
-}
-
-nav {
->>>>>>> Loading
   width: 100%;
   display: flex;
   justify-content: center;
@@ -284,21 +73,10 @@ nav {
   height: 5rem;
   z-index: 1;
   position: absolute;
-<<<<<<< HEAD
   padding: 3rem;
   cursor: pointer;
 }
 
 .white-text {
   color: white;
-}
-
-/*# sourceMappingURL=main.css.map */
-=======
-}
-
-.abort-timer-button {
-  width: 13rem;
-  height: 4rem;
 }/*# sourceMappingURL=main.css.map */
->>>>>>> Loading

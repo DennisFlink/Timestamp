@@ -1,0 +1,70 @@
+.pause-view {
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #222;
+  font-family: "PT Sans", sans-serif;
+  text-align: center;
+}
+.pause-view .circle-1, .pause-view .circle-2, .pause-view .circle-3, .pause-view .circle-4 {
+  margin: auto;
+  border-radius: 50%;
+  grid-area: 1/1;
+}
+.pause-view .circle-1 {
+  background-color: rgba(255, 255, 255, 0.08);
+  width: 15rem;
+  height: 15rem;
+  z-index: 4;
+}
+.pause-view .circle-2 {
+  background-color: rgba(255, 255, 255, 0.06);
+  width: 23rem;
+  height: 23rem;
+  z-index: 3;
+}
+.pause-view .circle-3 {
+  background-color: rgba(255, 255, 255, 0.05);
+  height: 34rem;
+  width: 34rem;
+  z-index: 2;
+}
+.pause-view .circle-4 {
+  background-color: rgba(255, 255, 255, 0.03);
+  width: 50rem;
+  height: 50rem;
+  z-index: 1;
+}
+.pause-view h3, .pause-view p {
+  grid-area: 1/1;
+  margin: auto;
+  color: #eee;
+}
+.pause-view h3 {
+  font-size: 3rem;
+  padding-top: 20rem;
+  font-weight: 700;
+}
+.pause-view p {
+  font-size: 2rem;
+  padding-top: 25rem;
+  color: rgba(255, 255, 255, 0.233);
+}
+.pause-view .pause-outline {
+  grid-area: 1/1;
+  margin: auto;
+  height: 8rem;
+  width: 10rem;
+  color: #eee;
+}
+.pause-view div {
+  grid-area: 1/1;
+  margin: auto;
+  padding-top: 10rem;
+}
+.pause-view div p {
+  padding-bottom: 2rem;
+}/*# sourceMappingURL=pause-view.css.map */
