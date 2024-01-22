@@ -1,11 +1,11 @@
-@use "../abstracts/colors" as C;
-
+@use '../abstracts/colors' as color;
 .abort-timer-button {
-  width: 13rem;
-  height: 4rem;
-  border: 1px solid C.$color-dark;
-
-  p {
-    color: C.$color-dark;
-  }
+    width: 13rem;
+    height: 4rem;
+    border: 1px solid color.$color-dark;
+    border-radius: 0.5rem;
+    color: color.$color-dark;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.25rem;
 }
