@@ -64,12 +64,15 @@ const goToPauseView = () => {
     startIntervalTimer();
 };
 const startIntervalTimer = () => {
-    const initialTime = { minutes: 5 };
+    const initialTime = { seconds: 5 };
     timer.start({ countdown: true, startValues: initialTime });
+    console.log('start interval timer');
     let minute = document.getElementById("interval-minutes");
     let second = document.getElementById("interval-seconds");
-    minute.textContent = timer.getTimeValues().minutes.toString();
-    second.textContent = timer.getTimeValues().seconds.toString();
+    timer.addEventListener('secondsUpdated', function () {
+        minute.textContent = timer.getTimeValues().minutes.toString();
+        second.textContent = timer.getTimeValues().seconds.toString();
+    });
 };
 const goToAlarm = () => {
     if (interval === true) {
@@ -91,25 +94,22 @@ if (amountMinutesElement) {
     numericValue = parseInt(amountMinutes, 10);
 }
 const initialTime = { seconds: numericValue };
-timer.start({ countdown: true, startValues: initialTime });
-console.log('timer sttarted');
-timer.addEventListener("secondsUpdated", function (e) {
-    let basicUsageElement = document.querySelector("#gettingvalue");
-    if (basicUsageElement) {
+const startTimer = () => {
+    timer.start({ countdown: true, startValues: initialTime });
+    console.log('timer started');
+    timer.addEventListener("secondsUpdated", function () {
         let minute = document.querySelector(".minutes");
         let second = document.querySelector(".seconds");
         minute.textContent = timer.getTimeValues().minutes.toString();
         second.textContent = timer.getTimeValues().seconds.toString();
-    }
-    visualTimer();
-    startClock();
-});
-const startTimer = () => {
+        visualTimer();
+        startClock();
+    });
+    timer.addEventListener('targetAchieved', function (e) {
+        goToAlarm();
+        console.log('timer ended!');
+    });
 };
-timer.addEventListener('targetAchieved', function (e) {
-    goToAlarm();
-    console.log('timer ended!');
-});
 const visualTimer = () => {
     let totalTimeInSeconds = timer.getTotalTimeValues().seconds;
     upDateProg(totalTimeInSeconds);
