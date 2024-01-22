@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const easytimer_js_1 = __importDefault(require("easytimer.js"));
 let timer = new easytimer_js_1.default();
+let ScreenState = 1;
 const initialTime = { minutes: 2 };
 timer.start({ countdown: true, startValues: initialTime });
 timer.addEventListener("secondsUpdated", function (e) {
@@ -16,6 +17,7 @@ timer.addEventListener("secondsUpdated", function (e) {
         second.textContent = timer.getTimeValues().seconds.toString();
     }
     visualTimer();
+    startClock();
 });
 const visualTimer = () => {
     let totalTimeInSeconds = timer.getTotalTimeValues().seconds;
@@ -49,21 +51,19 @@ const upDateProg = (totalTimeInSeconds) => {
 const secondHand = document.getElementById('second-hand');
 const minutedHand = document.getElementById('minute-hand');
 const hourHand = document.getElementById('hour-hand');
-let timerSeconds = 120;
+let timerSeconds = timer.getTotalTimeValues().seconds;
+console.log(timerSeconds);
 let elapsedSeconds = 0;
-function startTimer() {
+function startClock() {
     setInterval(() => {
         elapsedSeconds++;
         const seconds = elapsedSeconds / 60;
         const minutes = seconds / 60;
         rotateClockHand(secondHand, seconds);
         rotateClockHand(minutedHand, minutes);
-        if (timerSeconds === elapsedSeconds) {
-            goToAlarm();
-        }
     }, 1000);
 }
-function resetTimer() {
+function resetClock() {
     rotateClockHand(secondHand, 0);
     rotateClockHand(minutedHand, 0);
     elapsedSeconds = 0;
@@ -71,5 +71,3 @@ function resetTimer() {
 function rotateClockHand(element, rotation) {
     element.style.setProperty('--rotate', `${rotation * 360}`);
 }
-function goToAlarm() { }
-startTimer();

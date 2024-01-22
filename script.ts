@@ -1,6 +1,8 @@
 import Timer from "easytimer.js";
 let timer = new Timer();
 
+let ScreenState: number = 1;
+
 const initialTime = { minutes: 2 };
 timer.start({ countdown: true, startValues: initialTime });
 
@@ -14,6 +16,7 @@ timer.addEventListener("secondsUpdated", function (e) {
     second!.textContent = timer.getTimeValues().seconds.toString();
   }
   visualTimer();
+  startClock();
 });
 
 const visualTimer = () => {
@@ -58,10 +61,11 @@ const secondHand = document.getElementById('second-hand') as HTMLElement
 const minutedHand = document.getElementById('minute-hand') as HTMLElement
 const hourHand = document.getElementById('hour-hand') as HTMLElement
 
-let timerSeconds: number = 120;
+let timerSeconds: number = timer.getTotalTimeValues().seconds
+console.log(timerSeconds)
 let elapsedSeconds: number = 0;
 
-function startTimer() {
+function startClock() {
     setInterval(() => {
         elapsedSeconds++
         const seconds = elapsedSeconds / 60
@@ -70,14 +74,10 @@ function startTimer() {
         rotateClockHand(secondHand, seconds)
         rotateClockHand(minutedHand, minutes)
 
-        if (timerSeconds === elapsedSeconds) {
-            goToAlarm();
-        }
-
     }, 1000)
 }
 
-function resetTimer() {
+function resetClock() {
     rotateClockHand(secondHand, 0)
     rotateClockHand(minutedHand, 0)
     elapsedSeconds = 0;
@@ -86,7 +86,3 @@ function resetTimer() {
 function rotateClockHand(element: HTMLElement, rotation: number) {
    element.style.setProperty('--rotate', `${rotation * 360}`);
 }
-
-function goToAlarm(){}
-
-startTimer()
