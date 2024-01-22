@@ -36,7 +36,7 @@ const upDateProg = (totalTimeInSeconds: any) => {
         (initialTime.minutes * 60)) *
       100;
     console.log(progress);
-    /*     let progress: number = totalTimeInSeconds / 100; */
+
 
     progressBarEl.style.height = `${progress}%`;
 
@@ -48,7 +48,7 @@ const upDateProg = (totalTimeInSeconds: any) => {
       menuIcon.classList.remove("white-text");
     }
   }
-  // countdown finished
+
   if (initialTime.minutes === 0) {
     progressBarEl!.style.height = "100%";
   }
