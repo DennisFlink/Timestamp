@@ -218,15 +218,16 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: "PT Sans", sans-serif;
 }
 .set-timer .chooseTime {
   display: flex;
   flex-direction: row;
   padding: 1 rem;
+  font-size: 30 rem;
 }
-.set-timer .minutes {
-  font-size: 10 rem;
-  font-family: "PT Sans", sans-serif;
+.set-timer #minutes {
+  font-size: 5rem;
 }
 
 .abort-timer-button {
@@ -266,6 +267,7 @@ body {
 .countbtn {
   text-decoration: none;
   border: none;
+  background-color: transparent;
 }
 
 header {
