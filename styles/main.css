@@ -200,16 +200,19 @@ body {
   width: 10rem;
   height: 10rem;
   transform: rotate(90deg);
+  cursor: pointer;
 }
 .loading .logo-container h1 {
   font-size: 10rem;
   color: white;
   text-align: center;
+  cursor: none;
 }
 .loading .logo-container p {
   color: white;
   text-align: center;
   font-size: 5rem;
+  cursor: none;
 }
 
 .abort-timer-button {
@@ -266,6 +269,4 @@ h1 {
 
 .white-text {
   color: white;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

@@ -33,8 +33,26 @@
     </section>
 
     <section class="set-timer hidden">
-      <div id="minutes">3</div>
-      <button id="start"></button>
+      <div class="chooseTime">
+        <button aria-label="countDown btn" id="countDown">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <div id="minutes">1</div>
+        <p>minutes</p>
+        <button aria-label="countup" id="countUp">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+      <div>
+        <input type="checkbox" id="Intervals" />
+        <label for="Intervals">Intervals</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="break" />
+        <label for="break">5 min break / interval</label>
+      </div>
+      <button id="startTimer"><p>START TIMER</p></button>
     </section>
 
     <section class="visual hidden">
@@ -129,19 +147,18 @@
       <div class="circle-4"></div>
       <h3>Pause & Breathe</h3>
       <div>
-        <p class="timer"><span id="interval-minutes"></span><span id="interval-seconds"></span></p>
+        <p class="timer">
+          <span id="interval-minutes"></span> :
+          <span id="interval-seconds"></span>
+        </p>
         <button class="no-pause-button">NO PAUSE, GO NOW</button>
       </div>
     </section>
 
-    <section class="digital-timer hidden">
-      hello
-    </section>
+    <section class="digital-timer hidden">hello</section>
 
-    <section class="alarm hidden">
-      alarm
-    </section>
-   
+    <section class="alarm hidden">alarm</section>
+
     <script src="./dist/easytimer.bundle.js"></script>
     <script src="./dist/script.bundle.js"></script>
   </body>
