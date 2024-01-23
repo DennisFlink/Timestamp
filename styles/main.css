@@ -219,6 +219,7 @@ body {
   align-items: center;
   height: 100vh;
   font-family: "PT Sans", sans-serif;
+  background-color: #eee;
 }
 .set-timer .chooseTime {
   display: flex;
@@ -228,6 +229,10 @@ body {
 }
 .set-timer #minutes {
   font-size: 5rem;
+}
+.set-timer p {
+  font-size: 2rem;
+  color: #747474;
 }
 
 .abort-timer-button {
@@ -254,7 +259,7 @@ body {
 }
 
 #startTimer {
-  width: 13rem;
+  width: auto;
   height: 4rem;
   border: 1px solid #222;
   border-radius: 0.5rem;
