@@ -90,13 +90,13 @@ const goToAlarm = () => {
         visualScreen = false;
     }
 };
-let numericValue = 0;
+let minutes = 0;
 const amountMinutesElement = document.getElementById("minutes");
 if (amountMinutesElement) {
     const amountMinutes = amountMinutesElement.textContent || "";
-    numericValue = parseInt(amountMinutes, 10);
+    minutes = parseInt(amountMinutes, 10);
 }
-const initialTime = { seconds: numericValue };
+const initialTime = { seconds: minutes };
 const startTimer = () => {
     timer.start({ countdown: true, startValues: initialTime });
     console.log('timer started');
@@ -160,7 +160,7 @@ function resetClock() {
 function rotateClockHand(element, rotation) {
     element.style.setProperty("--rotate", `${rotation * 360}`);
 }
-let minutes = 1;
+// let minutes: number = 1;
 conutUpBtn.addEventListener('click', () => {
     minutes++;
     counterValue.innerHTML = minutes.toString();

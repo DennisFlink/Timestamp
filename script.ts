@@ -98,15 +98,15 @@ const goToAlarm = () => {
 
 
 
-let numericValue: number = 0;
+let minutes: number = 0;
 const amountMinutesElement = document.getElementById("minutes");
 
 if (amountMinutesElement) {
   const amountMinutes: string = amountMinutesElement.textContent || "";
-  numericValue = parseInt(amountMinutes, 10);
+  minutes = parseInt(amountMinutes, 10);
 }
 
-const initialTime = { seconds: numericValue };
+const initialTime = { seconds: minutes };
 
 const startTimer = () => {
   timer.start({ countdown: true, startValues: initialTime });
@@ -192,7 +192,7 @@ function rotateClockHand(element: HTMLElement, rotation: number) {
   element.style.setProperty("--rotate", `${rotation * 360}`);
 }
 
-let minutes: number = 1;
+// let minutes: number = 1;
 
 conutUpBtn.addEventListener('click', () => {
   minutes++;
