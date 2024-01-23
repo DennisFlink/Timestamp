@@ -244,6 +244,8 @@ body {
   color: #eee;
   font-family: "PT Sans", sans-serif;
   text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 .alarm .icon-cont {
   font-size: 10rem;
@@ -338,6 +340,7 @@ body {
   letter-spacing: 0.25rem;
   background-color: transparent;
   align-items: center;
+  justify-content: center;
 }
 
 header {

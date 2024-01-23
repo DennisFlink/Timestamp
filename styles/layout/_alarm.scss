@@ -11,6 +11,8 @@
     color: C.$color-light;
     font-family: 'PT Sans', sans-serif;
     text-align: center;
+    height: 100vh;
+    width: 100vw;
 
     .icon-cont{
         font-size: 10rem;
@@ -20,8 +22,6 @@
             font-size: 2rem;
         }
     }
-
-
 
     
 }
