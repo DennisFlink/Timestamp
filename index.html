@@ -24,7 +24,7 @@
       </nav>
     </header>
 
-    <section class="loading hidden">
+    <section class="loading">
       <div class="logo-container">
         <ion-icon id="logo" class="logo" name="reorder-four-outline"></ion-icon>
         <h1>Interval</h1>
@@ -32,21 +32,21 @@
       </div>
     </section>
 
-    <section class="set-timer ">
+    <section class="set-timer hidden">
       <div class="chooseTime">
-      <button id="countDown" ><ion-icon name="chevron-back-outline"></ion-icon></button>
+      <button class="countbtn" id="countDown" ><ion-icon name="chevron-back-outline"></ion-icon></button>
       <div id="minutes">1</div>
       <p>minutes</p>
-     <button id="countUp"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+     <button class="countbtn"  id="countUp"><ion-icon name="chevron-forward-outline"></ion-icon></button>
     </div>
       <div>
         <input type="checkbox" />
-        <label for="Intervals">Intervals</label>
+        <label id="intervals" for="Intervals">Intervals</label>
       </div>
     
       <div>
         <input type="checkbox"/>
-        <label for="break">5 min break / interval</label>
+        <label id="break" for="break">5 min break / interval</label>
       </div>
       <button id="startTimer"><p>START TIMER</p></button>
     </section>

@@ -212,6 +212,23 @@ body {
   font-size: 5rem;
 }
 
+.set-timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.set-timer .chooseTime {
+  display: flex;
+  flex-direction: row;
+  padding: 1 rem;
+}
+.set-timer .minutes {
+  font-size: 10 rem;
+  font-family: "PT Sans", sans-serif;
+}
+
 .abort-timer-button {
   width: 13rem;
   height: 4rem;
@@ -233,6 +250,22 @@ body {
   font-family: "PT Sans", sans-serif;
   font-weight: 700;
   letter-spacing: 0.25rem;
+}
+
+#startTimer {
+  width: 13rem;
+  height: 4rem;
+  border: 1px solid #222;
+  border-radius: 0.5rem;
+  color: #222;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+}
+
+.countbtn {
+  text-decoration: none;
+  border: none;
 }
 
 header {
