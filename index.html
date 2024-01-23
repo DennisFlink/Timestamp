@@ -17,52 +17,69 @@
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <body>
-    <header class="hidden">
-      <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+    <header class="">
       <nav class="nav">
-        <h1>INTERVAL</h1>
+        <div class="dropdown">
+          <button type="button" aria-label="dropdown" class="dropbtn">
+            <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+          </button>
+
+          <div id="myDropdown" class="dropdown-content">
+            <a id="analogview">Analog Timer</a>
+            <a id="digitalview">Digital Timer</a>
+            <a id="visualview">Visual Timer</a>
+          </div>
+        </div>
       </nav>
+      <h1>INTERVAL</h1>
     </header>
 
     <section class="loading">
       <div class="logo-container">
         <ion-icon id="logo" class="logo" name="reorder-four-outline"></ion-icon>
-        <h1>Interval</h1>
+        <h2>Interval</h2>
         <p>For all your timing needs</p>
       </div>
     </section>
 
     <section class="set-timer hidden">
       <div class="chooseTime">
-      <button class="countbtn" id="countDown" ><ion-icon name="chevron-back-outline"></ion-icon></button>
-      <div id="minutes">1</div>
-      <p>minutes</p>
-     <button class="countbtn"  id="countUp"><ion-icon name="chevron-forward-outline"></ion-icon></button>
-    </div>
+        <button class="countbtn" id="countDown">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <div id="minutes">1</div>
+        <p>minutes</p>
+        <button class="countbtn" id="countUp">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+      <div>
+        <input type="checkbox" id="intervals" />
+        <label for="Intervals">Intervals</label>
+      </div>
+
       <div>
         <input type="checkbox" />
-        <label id="intervals" for="Intervals">Intervals</label>
-      </div>
-    
-      <div>
-        <input type="checkbox"/>
         <label id="break" for="break">5 min break / interval</label>
       </div>
       <button id="startTimer"><p>START TIMER</p></button>
     </section>
 
-    <section class="visual hidden">
+    <section class="digital-timer hidden">
+      <div id="gettingvalue">
+        <span class="digital-minutes">0</span>
+        <span class="dots">:</span>
+        <span class="digital-seconds">0</span>
+      </div>
+    </section>
+
+    <section class="visual">
       <div class="progress-bar">
         <div class="progress"></div>
       </div>
       <div class="outer-container">
         <div class="inner-container">
-          <div id="gettingvalue">
-            <span class="minutes">0</span>
-            <span class="seconds">0</span>
-          </div>
-
-          <button type="button" class="abort-timer-button">Abort timer</button>
+          <button type="button" class="abort-timer-button">ABORT TIMER</button>
         </div>
       </div>
     </section>
@@ -143,23 +160,24 @@
       <div class="circle-4"></div>
       <h3>Pause & Breathe</h3>
       <div>
-        <p class="timer"><span id="interval-minutes"></span> : <span id="interval-seconds"></span></p>
+        <p class="timer">
+          <span id="interval-minutes"></span> :
+          <span id="interval-seconds"></span>
+        </p>
         <button class="no-pause-button">NO PAUSE, GO NOW</button>
       </div>
     </section>
 
-    <section class="digital-timer hidden">
-      hello
-    </section>
+    <section class="digital-timer hidden">hello</section>
 
     <section class="alarm hidden">
       <div class="alarm-container">
-      <ion-icon name="alarm-outline"></ion-icon>
-      <p>Times up!</p>
-    </div>
-      <button class="setNew"> SET NEW TIMER</button>
+        <ion-icon name="alarm-outline"></ion-icon>
+        <p>Times up!</p>
+      </div>
+      <button class="setNew">SET NEW TIMER</button>
     </section>
-   
+
     <script src="./dist/easytimer.bundle.js"></script>
     <script src="./dist/script.bundle.js"></script>
   </body>

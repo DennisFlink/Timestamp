@@ -1,53 +1,54 @@
+@use "../abstracts/colors" as C;
 .analog-timer {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   padding-top: 10rem;
+  background-color: C.$color-light;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10rem;
 
-    .clock {
-        width: 30rem;
-        height: 30rem;
-        position: relative;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  .clock {
+    width: 30rem;
+    height: 30rem;
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        .number {
-            transform: rotate(calc(6deg * var(--n)));
-            position: absolute;
-            text-align: center;
-            inset: 2rem;
-            font-size: 2rem;
-
-        
-        }
-
-        .minute-hand, .second-hand {
-            --rotate: 0;
-            position: absolute;
-            left: 50%;
-            bottom: 50%;
-            transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
-            transform-origin: bottom;
-        }
-
-  
-        .minute-hand {
-            width: 0.5rem;
-            height: 10rem;
-            background-color: black
-        }
-
-        .second-hand {
-            width: 0.25rem;
-            height: 12rem;
-            background-color: gray
-        }
+    .number {
+      transform: rotate(calc(6deg * var(--n)));
+      position: absolute;
+      text-align: center;
+      inset: 2rem;
+      font-size: 2rem;
     }
 
-    .abort-timer-button {
-        margin-top: 10rem;
+    .minute-hand,
+    .second-hand {
+      --rotate: 0;
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+      transform-origin: bottom;
     }
+
+    .minute-hand {
+      width: 0.5rem;
+      height: 10rem;
+      background-color: black;
+    }
+
+    .second-hand {
+      width: 0.25rem;
+      height: 12rem;
+      background-color: gray;
+    }
+  }
+
+  .abort-timer-button {
+    margin-top: 25rem;
+  }
 }
