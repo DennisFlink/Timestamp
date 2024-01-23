@@ -24,7 +24,7 @@
       </nav>
     </header>
 
-    <section class="loading">
+    <section class="loading hidden">
       <div class="logo-container">
         <ion-icon id="logo" class="logo" name="reorder-four-outline"></ion-icon>
         <h1>Interval</h1>
@@ -32,9 +32,23 @@
       </div>
     </section>
 
-    <section class="set-timer hidden">
-      <div id="minutes">3</div>
-      <button id="start"></button>
+    <section class="set-timer ">
+      <div class="chooseTime">
+      <button id="countDown" ><ion-icon name="chevron-back-outline"></ion-icon></button>
+      <div id="minutes">1</div>
+      <p>minutes</p>
+     <button id="countUp"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+    </div>
+      <div>
+        <input type="checkbox" />
+        <label for="Intervals">Intervals</label>
+      </div>
+    
+      <div>
+        <input type="checkbox"/>
+        <label for="break">5 min break / interval</label>
+      </div>
+      <button id="startTimer"><p>START TIMER</p></button>
     </section>
 
     <section class="visual hidden">
@@ -139,7 +153,11 @@
     </section>
 
     <section class="alarm hidden">
-      alarm
+      <div class="alarm-container">
+      <ion-icon name="alarm-outline"></ion-icon>
+      <p>Times up!</p>
+    </div>
+      <button class="setNew"> SET NEW TIMER</button>
     </section>
    
     <script src="./dist/easytimer.bundle.js"></script>

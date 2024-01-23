@@ -14,6 +14,9 @@ const alarm = document.querySelector('.alarm') as HTMLElement
 const logoBtn = document.getElementById('logo') as HTMLElement
 const startBtn = document.getElementById('start') as HTMLElement
 const abortBtns: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.abort-timer-button')
+const counterValue = document.getElementById('minutes') as HTMLElement;
+const conutUpBtn = document.getElementById('countUp') as HTMLElement;
+const countDownBtn = document.getElementById('countDown') as HTMLElement;
 
 logoBtn.addEventListener('click', function(){
   goToSetTimer()
@@ -188,3 +191,23 @@ function resetClock() {
 function rotateClockHand(element: HTMLElement, rotation: number) {
   element.style.setProperty("--rotate", `${rotation * 360}`);
 }
+
+let minutes: number = 1;
+
+conutUpBtn.addEventListener('click', () => {
+  minutes++;
+  counterValue.innerHTML = minutes.toString();
+});
+
+countDownBtn.addEventListener('click', () => {
+  if (minutes > 1) {
+    minutes--;
+    counterValue.innerHTML = minutes.toString();
+  }
+});
+
+const setNew = document.getElementsByClassName('setNew')[0] as HTMLElement;
+setNew.addEventListener("click", function() {
+    document.getElementsByClassName('set-timer')[0].classList.remove("hidden");
+    document.getElementsByClassName('alarm')[0].classList.add("hidden");
+});
