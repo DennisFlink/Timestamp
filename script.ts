@@ -2,6 +2,7 @@ import Timer from 'easytimer.js'
 let timer = new Timer()
 
 let visualScreen: boolean = false
+const breakCheckbox = document.getElementById('break') as HTMLInputElement
 let interval: boolean = true
 
 const header = document.querySelector('header') as HTMLElement
@@ -103,20 +104,25 @@ const goToPauseView = () => {
 }
 
 const startIntervalTimer = () => {
-   const initialTime = { minutes: 5 }
+   const initialTime = { seconds: 5 }
    timer.start({ countdown: true, startValues: initialTime })
-   console.log('start interval timer')
+   console.log('start interval timer', initialTime)
    let minute = document.getElementById('interval-minutes') as HTMLElement
    let second = document.getElementById('interval-seconds') as HTMLElement
-
+   resetClock()
    timer.addEventListener('secondsUpdated', function () {
       minute!.textContent = timer.getTimeValues().minutes.toString()
       second!.textContent = timer.getTimeValues().seconds.toString()
    })
+   timer.addEventListener('targetAchieved', function (e) {
+      stopTimer()
+      startTimer()
+      visualScreen = false
+   })
 }
 
 const goToAlarm = () => {
-   if (interval === true) {
+   if (breakCheckbox.checked) {
       goToPauseView()
    } else {
       const sectionsToHide = document.querySelectorAll('section:not(#alarm)')
@@ -159,7 +165,7 @@ const startTimer = () => {
    timer.addEventListener('targetAchieved', function (e) {
       goToAlarm()
    })
-   goToAnalogTimer()
+   goToDigitalTimer()
 }
 
 const updateAndStartClock = () => {

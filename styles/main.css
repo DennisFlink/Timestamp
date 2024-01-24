@@ -166,12 +166,13 @@ p {
   width: 10rem;
   color: #eee;
 }
-.pause-view div {
+.pause-view .pause-container {
   grid-area: 1/1;
   margin: auto;
   padding-top: 10rem;
+  z-index: 100;
 }
-.pause-view div p {
+.pause-view .pause-container p {
   padding-bottom: 2rem;
 }
 

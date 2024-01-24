@@ -37,10 +37,11 @@
       color: color.$color-light;
    }
 
-   div {
+   .pause-container {
       grid-area: 1 / 1;
       margin: auto;
       padding-top: 10rem;
+      z-index: 100;
 
       p {
          padding-bottom: 2rem;
