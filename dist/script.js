@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const easytimer_js_1 = __importDefault(require("easytimer.js"));
 let timer = new easytimer_js_1.default();
 let visualScreen = false;
-let interval = false;
+let interval = true;
 const header = document.querySelector('header');
 const setTimer = document.querySelector('.set-timer');
 const visual = document.querySelector('.visual');
@@ -89,7 +89,7 @@ const goToPauseView = () => {
     startIntervalTimer();
 };
 const startIntervalTimer = () => {
-    const initialTime = { seconds: 5 };
+    const initialTime = { minutes: 5 };
     timer.start({ countdown: true, startValues: initialTime });
     console.log('start interval timer');
     let minute = document.getElementById('interval-minutes');

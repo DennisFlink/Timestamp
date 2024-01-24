@@ -2,7 +2,7 @@ import Timer from 'easytimer.js'
 let timer = new Timer()
 
 let visualScreen: boolean = false
-let interval: boolean = false
+let interval: boolean = true
 
 const header = document.querySelector('header') as HTMLElement
 const setTimer = document.querySelector('.set-timer') as HTMLElement
@@ -103,7 +103,7 @@ const goToPauseView = () => {
 }
 
 const startIntervalTimer = () => {
-   const initialTime = { seconds: 5 }
+   const initialTime = { minutes: 5 }
    timer.start({ countdown: true, startValues: initialTime })
    console.log('start interval timer')
    let minute = document.getElementById('interval-minutes') as HTMLElement

@@ -376,6 +376,7 @@ h1 {
 }
 
 .nav {
+  margin-left: 3rem;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -402,7 +403,6 @@ h1 {
 
 .dropdown-content {
   top: 6rem;
-  left: 2rem;
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -418,6 +418,7 @@ h1 {
   text-decoration: none;
   display: block;
   pointer-events: auto;
+  font-size: 2rem;
 }
 
 .dropdown a:hover {
