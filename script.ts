@@ -2,8 +2,6 @@ import Timer from 'easytimer.js'
 let timer = new Timer()
 
 let visualScreen: boolean = false
-const breakCheckbox = document.getElementById('break') as HTMLInputElement
-let interval: boolean = true
 
 const header = document.querySelector('header') as HTMLElement
 const setTimer = document.querySelector('.set-timer') as HTMLElement
@@ -14,13 +12,13 @@ const digitalTimer = document.querySelector('.digital-timer') as HTMLElement
 const alarm = document.querySelector('.alarm') as HTMLElement
 const logoBtn = document.getElementById('logo') as HTMLElement
 const startBtn = document.getElementById('startTimer') as HTMLElement
-const abortBtns: NodeListOf<HTMLButtonElement> =
-   document.querySelectorAll('.abort-timer-button')
-
+const abortBtns: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.abort-timer-button')
+const breakCheckbox = document.getElementById('break') as HTMLInputElement
+const intervalsCheckbox = document.getElementById('intervals') as HTMLInputElement;
 const headerH1: HTMLElement | null = document.querySelector('h1')
 const progressBarEl: HTMLElement | null = document.querySelector('.progress')
 const menuIcon: HTMLElement | null = document.querySelector('.menu-icon')
-
+const noPauseButton = document.querySelector('.no-pause-button') as HTMLElement
 const counterValue = document.getElementById('minutes') as HTMLElement
 const conutUpBtn = document.getElementById('countUp') as HTMLElement
 const countDownBtn = document.getElementById('countDown') as HTMLElement
@@ -45,13 +43,16 @@ logoBtn.addEventListener('click', function () {
 
 abortBtns.forEach((button) => {
    button.addEventListener('click', function () {
-      stopTimer()
-      resetClock()
-      goToSetTimer()
-      visualScreen = false
-      upDateProg()
+     resetTimers()
    })
 })
+
+const resetTimers = () => {
+   stopTimer()
+   resetClock()
+   resetHeader()
+   goToSetTimer()
+}
 
 startBtn.addEventListener('click', function () {
    startTimer()
@@ -64,7 +65,6 @@ const goToSetTimer = () => {
    setTimer.classList.remove('hidden')
    dropBtn.setAttribute('style', 'pointer-events: none;')
 }
-
 const goToVisual = () => {
    const sectionsToHide = document.querySelectorAll('section:not(#header):not(#visual)')
    sectionsToHide.forEach((section) => section.classList.add('hidden'))
@@ -100,36 +100,49 @@ const goToPauseView = () => {
    header.classList.add('hidden')
    visualScreen = false
 
-   startIntervalTimer()
+   startIntervalTimer()   
 }
 
 const startIntervalTimer = () => {
-   const initialTime = { seconds: 5 }
+   const initialTime = { minutes: 5 }
    timer.start({ countdown: true, startValues: initialTime })
-   console.log('start interval timer', initialTime)
    let minute = document.getElementById('interval-minutes') as HTMLElement
    let second = document.getElementById('interval-seconds') as HTMLElement
-   resetClock()
    timer.addEventListener('secondsUpdated', function () {
       minute!.textContent = timer.getTimeValues().minutes.toString()
       second!.textContent = timer.getTimeValues().seconds.toString()
    })
+
    timer.addEventListener('targetAchieved', function (e) {
-      stopTimer()
+      timer.removeEventListener('targetAchieved', function(){})
+      resetTimers()
       startTimer()
       visualScreen = false
    })
 }
 
+noPauseButton.addEventListener('click', function() {
+   timer.removeEventListener('targetAchieved', function(){})
+   resetTimers()
+   startTimer()
+   visualScreen = false
+})
+
 const goToAlarm = () => {
+   resetTimers()
+
    if (breakCheckbox.checked) {
       goToPauseView()
-   } else {
+   } 
+   else if (intervalsCheckbox.checked) {
+      startTimer()
+   }
+   else {
       const sectionsToHide = document.querySelectorAll('section:not(#alarm)')
       sectionsToHide.forEach((section) => section.classList.add('hidden'))
       header.classList.add('hidden')
       alarm.classList.remove('hidden')
-      resetClock()
+      
       visualScreen = false
    }
 }
@@ -164,14 +177,16 @@ const startTimer = () => {
 
    timer.addEventListener('targetAchieved', function (e) {
       goToAlarm()
+      timer.removeEventListener('targetAchieved', function(){})
+      timer.addEventListener('secondsUpdated', function(){})
    })
    goToDigitalTimer()
 }
 
 const updateAndStartClock = () => {
-   upDateProg()
-   startClock()
-   startDigital()
+   startVisualTimer()
+   startAnalogTimer()
+   startDigitalTimer()
 }
 
 const stopTimer = () => {
@@ -181,21 +196,20 @@ const stopTimer = () => {
    })
 }
 
-const startDigital = () => {
+const startDigitalTimer = () => {
    timer.addEventListener('secondsUpdated', function () {
       let digitalEl = document.querySelector('#gettingvalue')
 
       if (digitalEl) {
          let minutes = document.querySelector('.digital-minutes')
          let seconds = document.querySelector('.digital-seconds')
-
          minutes!.textContent = timer.getTimeValues().minutes.toString()
          seconds!.textContent = timer.getTimeValues().seconds.toString()
       }
    })
 }
 
-const upDateProg = () => {
+const startVisualTimer = () => {
    let totalTimeInSeconds = timer.getTotalTimeValues().seconds
 
    if (progressBarEl && header && headerH1 && menuIcon) {
@@ -210,9 +224,9 @@ const upDateProg = () => {
       if (visualScreen === true && progress >= containerHeight - 94) {
          headerH1.classList.add('white-text')
          menuIcon.classList.add('white-text')
-      } else {
-         headerH1.classList.remove('white-text')
-         menuIcon.classList.remove('white-text')
+      }
+      else {
+         resetHeader()
       }
    }
 
@@ -221,13 +235,18 @@ const upDateProg = () => {
    }
 }
 
+const resetHeader = () => {
+   headerH1?.classList.remove('white-text')
+   menuIcon?.classList.remove('white-text')
+   visualScreen = false
+}
+
 const secondHand = document.getElementById('second-hand') as HTMLElement
 const minutedHand = document.getElementById('minute-hand') as HTMLElement
-const hourHand = document.getElementById('hour-hand') as HTMLElement
 
 let elapsedSeconds: number = 0
 
-function startClock() {
+function startAnalogTimer() {
    elapsedSeconds++
    const seconds = elapsedSeconds / 60
    const minutes = seconds / 60

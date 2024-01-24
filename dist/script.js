@@ -6,8 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const easytimer_js_1 = __importDefault(require("easytimer.js"));
 let timer = new easytimer_js_1.default();
 let visualScreen = false;
-const breakCheckbox = document.getElementById('break');
-let interval = true;
 const header = document.querySelector('header');
 const setTimer = document.querySelector('.set-timer');
 const visual = document.querySelector('.visual');
@@ -18,9 +16,12 @@ const alarm = document.querySelector('.alarm');
 const logoBtn = document.getElementById('logo');
 const startBtn = document.getElementById('startTimer');
 const abortBtns = document.querySelectorAll('.abort-timer-button');
+const breakCheckbox = document.getElementById('break');
+const intervalsCheckbox = document.getElementById('intervals');
 const headerH1 = document.querySelector('h1');
 const progressBarEl = document.querySelector('.progress');
 const menuIcon = document.querySelector('.menu-icon');
+const noPauseButton = document.querySelector('.no-pause-button');
 const counterValue = document.getElementById('minutes');
 const conutUpBtn = document.getElementById('countUp');
 const countDownBtn = document.getElementById('countDown');
@@ -40,13 +41,15 @@ logoBtn.addEventListener('click', function () {
 });
 abortBtns.forEach((button) => {
     button.addEventListener('click', function () {
-        stopTimer();
-        resetClock();
-        goToSetTimer();
-        visualScreen = false;
-        upDateProg();
+        resetTimers();
     });
 });
+const resetTimers = () => {
+    stopTimer();
+    resetClock();
+    resetHeader();
+    goToSetTimer();
+};
 startBtn.addEventListener('click', function () {
     startTimer();
 });
@@ -90,32 +93,40 @@ const goToPauseView = () => {
     startIntervalTimer();
 };
 const startIntervalTimer = () => {
-    const initialTime = { seconds: 5 };
+    const initialTime = { minutes: 5 };
     timer.start({ countdown: true, startValues: initialTime });
-    console.log('start interval timer', initialTime);
     let minute = document.getElementById('interval-minutes');
     let second = document.getElementById('interval-seconds');
-    resetClock();
     timer.addEventListener('secondsUpdated', function () {
         minute.textContent = timer.getTimeValues().minutes.toString();
         second.textContent = timer.getTimeValues().seconds.toString();
     });
     timer.addEventListener('targetAchieved', function (e) {
-        stopTimer();
+        timer.removeEventListener('targetAchieved', function () { });
+        resetTimers();
         startTimer();
         visualScreen = false;
     });
 };
+noPauseButton.addEventListener('click', function () {
+    timer.removeEventListener('targetAchieved', function () { });
+    resetTimers();
+    startTimer();
+    visualScreen = false;
+});
 const goToAlarm = () => {
+    resetTimers();
     if (breakCheckbox.checked) {
         goToPauseView();
+    }
+    else if (intervalsCheckbox.checked) {
+        startTimer();
     }
     else {
         const sectionsToHide = document.querySelectorAll('section:not(#alarm)');
         sectionsToHide.forEach((section) => section.classList.add('hidden'));
         header.classList.add('hidden');
         alarm.classList.remove('hidden');
-        resetClock();
         visualScreen = false;
     }
 };
@@ -142,13 +153,15 @@ const startTimer = () => {
     timer.addEventListener('secondsUpdated', updateAndStartClock);
     timer.addEventListener('targetAchieved', function (e) {
         goToAlarm();
+        timer.removeEventListener('targetAchieved', function () { });
+        timer.addEventListener('secondsUpdated', function () { });
     });
     goToDigitalTimer();
 };
 const updateAndStartClock = () => {
-    upDateProg();
-    startClock();
-    startDigital();
+    startVisualTimer();
+    startAnalogTimer();
+    startDigitalTimer();
 };
 const stopTimer = () => {
     timer.stop();
@@ -156,7 +169,7 @@ const stopTimer = () => {
         counterValue.innerHTML = minutes.toString();
     });
 };
-const startDigital = () => {
+const startDigitalTimer = () => {
     timer.addEventListener('secondsUpdated', function () {
         let digitalEl = document.querySelector('#gettingvalue');
         if (digitalEl) {
@@ -167,7 +180,7 @@ const startDigital = () => {
         }
     });
 };
-const upDateProg = () => {
+const startVisualTimer = () => {
     let totalTimeInSeconds = timer.getTotalTimeValues().seconds;
     if (progressBarEl && header && headerH1 && menuIcon) {
         const containerHeight = header.offsetHeight;
@@ -179,19 +192,22 @@ const upDateProg = () => {
             menuIcon.classList.add('white-text');
         }
         else {
-            headerH1.classList.remove('white-text');
-            menuIcon.classList.remove('white-text');
+            resetHeader();
         }
     }
     if (initialTime.minutes === 0) {
         progressBarEl.style.height = '100%';
     }
 };
+const resetHeader = () => {
+    headerH1 === null || headerH1 === void 0 ? void 0 : headerH1.classList.remove('white-text');
+    menuIcon === null || menuIcon === void 0 ? void 0 : menuIcon.classList.remove('white-text');
+    visualScreen = false;
+};
 const secondHand = document.getElementById('second-hand');
 const minutedHand = document.getElementById('minute-hand');
-const hourHand = document.getElementById('hour-hand');
 let elapsedSeconds = 0;
-function startClock() {
+function startAnalogTimer() {
     elapsedSeconds++;
     const seconds = elapsedSeconds / 60;
     const minutes = seconds / 60;
