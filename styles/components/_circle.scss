@@ -1,0 +1,32 @@
+.circle-1,
+.circle-2,
+.circle-3,
+.circle-4 {
+   margin: auto;
+   border-radius: 50%;
+   grid-area: 1 / 1;
+}
+.circle-1 {
+   background-color: rgba(255, 255, 255, 0.08);
+   width: 15rem;
+   height: 15rem;
+   z-index: 4;
+}
+.circle-2 {
+   background-color: rgba(255, 255, 255, 0.06);
+   width: 23rem;
+   height: 23rem;
+   z-index: 3;
+}
+.circle-3 {
+   background-color: rgba(255, 255, 255, 0.05);
+   height: 34rem;
+   width: 34rem;
+   z-index: 2;
+}
+.circle-4 {
+   background-color: rgba(255, 255, 255, 0.03);
+   width: 50rem;
+   height: 50rem;
+   z-index: 1;
+}

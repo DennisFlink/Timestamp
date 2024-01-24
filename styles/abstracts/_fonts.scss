@@ -1,4 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Righteous&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Righteous&display=swap');
 
 //font-family: 'PT Sans', sans-serif;
 //font-family: 'Righteous', sans-serif;
+
+header {
+   font-family: 'PT Sans', sans-serif;
+}
+
+.digital-minutes,
+.digital-seconds,
+.dots {
+   font-family: 'PT Sans', sans-serif;
+}
