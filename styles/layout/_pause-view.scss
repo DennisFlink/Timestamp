@@ -1,0 +1,50 @@
+@use '../abstracts/colors' as color;
+.pause-view {
+   display: grid;
+   grid-template-rows: 1fr;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   width: 100vw;
+   background-color: color.$color-dark;
+   font-family: 'PT Sans', sans-serif;
+   text-align: center;
+
+   h3,
+   p {
+      grid-area: 1 / 1;
+      margin: auto;
+      color: color.$color-light;
+   }
+
+   h3 {
+      font-size: 3rem;
+      padding-top: 20rem;
+      font-weight: 700;
+   }
+
+   p {
+      font-size: 2rem;
+      padding-top: 25rem;
+      color: rgba(255, 255, 255, 0.233);
+   }
+
+   .pause-outline {
+      grid-area: 1 / 1;
+      margin: auto;
+      height: 8rem;
+      width: 10rem;
+      color: color.$color-light;
+   }
+
+   .pause-container {
+      grid-area: 1 / 1;
+      margin: auto;
+      padding-top: 10rem;
+      z-index: 100;
+
+      p {
+         padding-bottom: 2rem;
+      }
+   }
+}

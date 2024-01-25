@@ -1,0 +1,25 @@
+@use '../abstracts/colors' as C;
+.digital-timer {
+   position: absolute;
+   background-color: C.$color-light;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#gettingvalue {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+}
+
+.digital-minutes,
+.digital-seconds,
+.dots {
+   font-size: 6rem;
+   letter-spacing: 0.5rem;
+   font-weight: 600;
+}

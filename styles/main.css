@@ -1,1 +1,470 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Righteous&display=swap");
+header {
+  font-family: "PT Sans", sans-serif;
+}
+
+.digital-minutes,
+.digital-seconds,
+.dots {
+  font-family: "PT Sans", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  letter-spacing: 3px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+h1,
+h2,
+p {
+  pointer-events: none;
+}
+
+.analog-timer {
+  background-color: #eee;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10rem;
+}
+.analog-timer .clock {
+  width: 30rem;
+  height: 30rem;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.analog-timer .clock .number {
+  transform: rotate(calc(6deg * var(--n)));
+  position: absolute;
+  text-align: center;
+  inset: 2rem;
+  font-size: 2rem;
+}
+.analog-timer .clock .minute-hand,
+.analog-timer .clock .second-hand {
+  --rotate: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+  transform-origin: bottom;
+}
+.analog-timer .clock .minute-hand {
+  width: 0.5rem;
+  height: 10rem;
+  background-color: black;
+}
+.analog-timer .clock .second-hand {
+  width: 0.25rem;
+  height: 12rem;
+  background-color: gray;
+}
+.analog-timer .abort-timer-button {
+  margin-top: 25rem;
+}
+
+.visual {
+  background-color: #eee;
+  height: 100%;
+  position: relative;
+}
+
+.outer-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: absolute;
+}
+
+.progress {
+  height: 0%;
+  background-color: #222;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.inner-container {
+  margin-bottom: 10rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.pause-view {
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #222;
+  font-family: "PT Sans", sans-serif;
+  text-align: center;
+}
+.pause-view h3,
+.pause-view p {
+  grid-area: 1/1;
+  margin: auto;
+  color: #eee;
+}
+.pause-view h3 {
+  font-size: 3rem;
+  padding-top: 20rem;
+  font-weight: 700;
+}
+.pause-view p {
+  font-size: 2rem;
+  padding-top: 25rem;
+  color: rgba(255, 255, 255, 0.233);
+}
+.pause-view .pause-outline {
+  grid-area: 1/1;
+  margin: auto;
+  height: 8rem;
+  width: 10rem;
+  color: #eee;
+}
+.pause-view .pause-container {
+  grid-area: 1/1;
+  margin: auto;
+  padding-top: 10rem;
+  z-index: 100;
+}
+.pause-view .pause-container p {
+  padding-bottom: 2rem;
+}
+
+.loading {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading .logo-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.loading .logo-container .logo {
+  color: white;
+  width: 10rem;
+  height: 10rem;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+.loading .logo-container h2 {
+  font-size: 10rem;
+  color: white;
+  text-align: center;
+}
+.loading .logo-container p {
+  color: white;
+  text-align: center;
+  font-size: 5rem;
+}
+
+.set-timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  font-family: "PT Sans", sans-serif;
+  background-color: #eee;
+}
+.set-timer .chooseTime {
+  display: flex;
+  flex-direction: row;
+  font-size: 30rem;
+  gap: 3rem;
+}
+.set-timer #minutes {
+  font-size: 5rem;
+}
+.set-timer p {
+  font-size: 2rem;
+  color: #747474;
+}
+
+.box-align {
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.alarm {
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  color: #eee;
+  font-family: "PT Sans", sans-serif;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+.alarm .container {
+  font-size: 10rem;
+  grid-area: 1/1;
+  margin-top: 18rem;
+  z-index: 10;
+}
+.alarm .container .alarm-text {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+.digital-timer {
+  position: absolute;
+  background-color: #eee;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gettingvalue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.digital-minutes,
+.digital-seconds,
+.dots {
+  font-size: 6rem;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
+}
+
+.abort-timer-button {
+  position: absolute;
+  bottom: 10rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 13rem;
+  height: 4rem;
+  border: 1px solid #222;
+  border-radius: 0.5rem;
+  color: #222;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+  z-index: 10;
+}
+
+.no-pause-button {
+  width: 20rem;
+  height: 4rem;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  color: #eee;
+  background-color: #222;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+}
+
+#startTimer {
+  padding: 0 1rem;
+  height: 4rem;
+  border: 1px solid #222;
+  border-radius: 0.5rem;
+  color: #222;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+}
+
+.countbtn {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+.counticon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.dropbtn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.setNew {
+  width: 20rem;
+  height: 4rem;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  color: #eee;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+header {
+  width: 100%;
+  height: 10rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  z-index: 1;
+}
+
+h1 {
+  position: absolute;
+  font-size: 3rem;
+  z-index: 1;
+}
+
+.nav {
+  margin-left: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-icon {
+  width: 5rem;
+  height: 5rem;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.white-text {
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  margin-left: 1rem;
+}
+
+.dropdown-content {
+  top: 6rem;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  pointer-events: auto;
+  font-size: 2rem;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+.circle-1,
+.circle-2,
+.circle-3,
+.circle-4 {
+  margin: auto;
+  border-radius: 50%;
+  grid-area: 1/1;
+}
+
+.circle-1 {
+  background-color: rgba(255, 255, 255, 0.08);
+  width: 15rem;
+  height: 15rem;
+  z-index: 4;
+}
+
+.circle-2 {
+  background-color: rgba(255, 255, 255, 0.06);
+  width: 23rem;
+  height: 23rem;
+  z-index: 3;
+}
+
+.circle-3 {
+  background-color: rgba(255, 255, 255, 0.05);
+  height: 34rem;
+  width: 34rem;
+  z-index: 2;
+}
+
+.circle-4 {
+  background-color: rgba(255, 255, 255, 0.03);
+  width: 50rem;
+  height: 50rem;
+  z-index: 1;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -1,16 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" defer></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" defer></script>
-    <script src="src/script.js" defer></script>
-  </head>
-  <body>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <script
+         type="module"
+         src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+         defer
+      ></script>
+      <script
+         nomodule
+         src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+         defer
+      ></script>
+      <link rel="stylesheet" href="/styles/main.css" />
+   </head>
+   <body>
+      <header class="">
+         <nav class="nav">
+            <div class="dropdown">
+               <button type="button" aria-label="dropdown" class="dropbtn">
+                  <ion-icon class="menu-icon" name="menu-outline"></ion-icon>
+               </button>
 
-    <section class="set-timer"></section>
+               <div id="myDropdown" class="dropdown-content">
+                  <a id="analogview">Analog Timer</a>
+                  <a id="digitalview">Digital Timer</a>
+                  <a id="visualview">Visual Timer</a>
+               </div>
+            </div>
+         </nav>
+         <h1>INTERVAL</h1>
+      </header>
 
-  </body>
+      <section class="loading">
+         <div class="logo-container">
+            <ion-icon id="logo" class="logo" name="reorder-four-outline"></ion-icon>
+            <h2>Interval</h2>
+            <p>For all your timing needs</p>
+         </div>
+      </section>
+
+      <section class="set-timer hidden">
+         <div class="chooseTime">
+            <button aria-label="countdownbutton" class="countbtn" id="countDown">
+               <ion-icon class="counticon" name="chevron-back-outline"></ion-icon>
+            </button>
+            <div id="minutes">1</div>
+            <button aria-label="countupbutton" class="countbtn" id="countUp">
+               <ion-icon class="counticon" name="chevron-forward-outline"></ion-icon>
+            </button>
+         </div>
+         <p>minutes</p>
+         <div class="checkbox-contaioner">
+            <div class="box-align">
+               <input type="checkbox" id="intervals" />
+               <label for="intervals">Intervals</label>
+            </div>
+            <div class="box-align">
+               <input type="checkbox" id="break" />
+               <label for="break">5 min break / interval</label>
+            </div>
+         </div>
+         <button id="startTimer"><p>START TIMER</p></button>
+      </section>
+
+      <section class="digital-timer hidden">
+         <div id="gettingvalue">
+            <span class="digital-minutes">0</span>
+            <span class="dots">:</span>
+            <span class="digital-seconds">0</span>
+         </div>
+         <button type="button" class="abort-timer-button">ABORT TIMER</button>
+      </section>
+
+      <section class="visual hidden">
+         <div class="progress-bar">
+            <div class="progress"></div>
+         </div>
+         <div class="outer-container">
+            <div class="inner-container"></div>
+         </div>
+         <button type="button" class="abort-timer-button">ABORT TIMER</button>
+      </section>
+
+      <section class="analog-timer hidden">
+         <div class="clock">
+            <div class="number" style="--n: 1">|</div>
+            <div class="number" style="--n: 2">|</div>
+            <div class="number" style="--n: 3">|</div>
+            <div class="number" style="--n: 4">|</div>
+            <div class="number" style="--n: 5">|</div>
+            <div class="number" style="--n: 6">|</div>
+            <div class="number" style="--n: 7">|</div>
+            <div class="number" style="--n: 8">|</div>
+            <div class="number" style="--n: 9">|</div>
+            <div class="number" style="--n: 10">|</div>
+            <div class="number" style="--n: 11">|</div>
+            <div class="number" style="--n: 12">|</div>
+            <div class="number" style="--n: 13">|</div>
+            <div class="number" style="--n: 14">|</div>
+            <div class="number" style="--n: 15">|</div>
+            <div class="number" style="--n: 16">|</div>
+            <div class="number" style="--n: 17">|</div>
+            <div class="number" style="--n: 18">|</div>
+            <div class="number" style="--n: 19">|</div>
+            <div class="number" style="--n: 20">|</div>
+            <div class="number" style="--n: 21">|</div>
+            <div class="number" style="--n: 22">|</div>
+            <div class="number" style="--n: 23">|</div>
+            <div class="number" style="--n: 24">|</div>
+            <div class="number" style="--n: 25">|</div>
+            <div class="number" style="--n: 26">|</div>
+            <div class="number" style="--n: 27">|</div>
+            <div class="number" style="--n: 28">|</div>
+            <div class="number" style="--n: 29">|</div>
+            <div class="number" style="--n: 30">|</div>
+            <div class="number" style="--n: 31">|</div>
+            <div class="number" style="--n: 32">|</div>
+            <div class="number" style="--n: 33">|</div>
+            <div class="number" style="--n: 34">|</div>
+            <div class="number" style="--n: 35">|</div>
+            <div class="number" style="--n: 36">|</div>
+            <div class="number" style="--n: 37">|</div>
+            <div class="number" style="--n: 38">|</div>
+            <div class="number" style="--n: 39">|</div>
+            <div class="number" style="--n: 40">|</div>
+            <div class="number" style="--n: 41">|</div>
+            <div class="number" style="--n: 42">|</div>
+            <div class="number" style="--n: 43">|</div>
+            <div class="number" style="--n: 44">|</div>
+            <div class="number" style="--n: 45">|</div>
+            <div class="number" style="--n: 46">|</div>
+            <div class="number" style="--n: 47">|</div>
+            <div class="number" style="--n: 48">|</div>
+            <div class="number" style="--n: 49">|</div>
+            <div class="number" style="--n: 50">|</div>
+            <div class="number" style="--n: 51">|</div>
+            <div class="number" style="--n: 52">|</div>
+            <div class="number" style="--n: 53">|</div>
+            <div class="number" style="--n: 54">|</div>
+            <div class="number" style="--n: 55">|</div>
+            <div class="number" style="--n: 56">|</div>
+            <div class="number" style="--n: 57">|</div>
+            <div class="number" style="--n: 58">|</div>
+            <div class="number" style="--n: 59">|</div>
+            <div class="number" style="--n: 60">|</div>
+            <div class="minute-hand" id="minute-hand"></div>
+            <div class="second-hand" id="second-hand"></div>
+         </div>
+         <button type="button" class="abort-timer-button">ABORT TIMER</button>
+      </section>
+
+      <section class="pause-view hidden">
+         <ion-icon class="pause-outline" name="pause-outline"></ion-icon>
+         <div class="circle-1"></div>
+         <div class="circle-2"></div>
+         <div class="circle-3"></div>
+         <div class="circle-4"></div>
+         <h3>Pause & Breathe</h3>
+         <div class="pause-container">
+            <p class="timer">
+               <span id="interval-minutes"></span> :
+               <span id="interval-seconds"></span>
+            </p>
+            <button class="no-pause-button">NO PAUSE, GO NOW</button>
+         </div>
+      </section>
+
+      <section class="digital-timer hidden">hello</section>
+
+      <section class="alarm hidden">
+         <div class="container">
+            <ion-icon name="alarm-outline"></ion-icon>
+            <h3 class="alarm-text">Times up!</h3>
+            <button type="button" class="setNew">SET NEW TIMER</button>
+         </div>
+
+         <div class="circle-1"></div>
+         <div class="circle-2"></div>
+
+         <div class="circle-3"></div>
+         <div class="circle-4"></div>
+      </section>
+
+      <script src="./dist/easytimer.bundle.js"></script>
+      <script src="./dist/script.bundle.js"></script>
+   </body>
 </html>

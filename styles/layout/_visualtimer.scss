@@ -1,0 +1,37 @@
+@use "../abstracts/colors" as C;
+.visual {
+  background-color: C.$color-light;
+  height: 100%;
+  position: relative;
+}
+
+.outer-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: absolute;
+}
+
+.progress {
+  height: 0%;
+  background-color: C.$color-dark;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.inner-container {
+  margin-bottom: 10rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}

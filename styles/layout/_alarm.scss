@@ -1,0 +1,26 @@
+@use '../abstracts/colors' as C;
+
+.alarm {
+   display: grid;
+   grid-template-rows: 1fr;
+   justify-content: center;
+   align-items: center;
+   background-color: C.$color-dark;
+   color: C.$color-light;
+   font-family: 'PT Sans', sans-serif;
+   text-align: center;
+   height: 100vh;
+   width: 100vw;
+
+   .container {
+      font-size: 10rem;
+      grid-area: 1 / 1;
+      margin-top: 18rem;
+      z-index: 10;
+
+      .alarm-text {
+         font-size: 4rem;
+         text-transform: uppercase;
+      }
+   }
+}
