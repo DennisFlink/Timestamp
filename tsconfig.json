@@ -6,7 +6,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "types": ["node", "eslint"],
   },
   "include": ["script.ts"],
   "exclude": ["node_modules"]
