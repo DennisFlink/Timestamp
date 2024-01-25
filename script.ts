@@ -180,7 +180,7 @@ const startTimer = () => {
       timer.removeEventListener('targetAchieved', function(){})
       timer.addEventListener('secondsUpdated', function(){})
    })
-   goToDigitalTimer()
+   goToAnalogTimer()
 }
 
 const updateAndStartClock = () => {
